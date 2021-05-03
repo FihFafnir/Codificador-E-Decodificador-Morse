@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  <title>Codificador de Código Morse</title>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div class="content">
+        <h1>Codificador:</h1>
+        <div
+          class="input"
+          onkeyup="encoder(this.innerText)"
+          role="textbox"
+          contenteditable>
+
+        </div>
+        <h1>Decodificador:</h1>
+        <div
+          class="input"
+          onkeyup="decoder(this.innerText)"
+          role="textbox"
+          contenteditable>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vanilla-tilt.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    VanillaTilt.init(document.querySelector(".box"), {
+      max: 25,
+      speed: 400
+    });
+
+    //It also supports NodeList
+    VanillaTilt.init(document.querySelectorAll(".your-element"));
+  </script>
+</body>
+</html>
