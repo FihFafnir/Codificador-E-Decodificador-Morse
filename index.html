@@ -27,17 +27,33 @@
         </div>
       </div>
     </div>
+    <label>
+      <input type="checkbox" checked onchange="handleChange(this)" />
+      <span class="check"></span>
+      <span class="btn"></span>
+    </label>
   </div>
   <script src="main.js" type="text/javascript" charset="utf-8"></script>
   <script src="vanilla-tilt.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
+    function handleChange(checkbox) {
+      if (checkbox.checked == true) {
+        VanillaTilt.init(document.querySelector(".box"), {
+          max: 20,
+          speed: 300
+        });
+      } else {
+        document.querySelector('.box').vanillaTilt.destroy();
+      }
+    }
+
     VanillaTilt.init(document.querySelector(".box"), {
-      max: 25,
-      speed: 400
+      max: 20,
+      speed: 300
     });
 
     //It also supports NodeList
-    VanillaTilt.init(document.querySelectorAll(".your-element"));
+    VanillaTilt.init(document.querySelectorAll(".box"));
   </script>
 </body>
 </html>
