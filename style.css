@@ -1,186 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.5);
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #161623;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #161623;
 }
 
 .container {
-  position: relative;
-  display: block;
-  text-align: center;
-  max-width: 1200px;
-  flex-wrap: wrap;
-  z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
 }
 
-.container .box {
-  position: relative;
-  width: 400px;
-  height: auto;
-  margin: 30px;
-  box-shadow: 20px 20px 50px rgba(0,0,0,.5);
-  border-radius: 15px;
-  background: rgba(255,255,255,.1);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid rgba(255,255,255,.5);
-  border-left: 1px solid rgba(255,255,255,.5);
-  backdrop-filter: blur(5px);
+.content {
+    padding: 25px;
+    text-align: center;
+    transition: 0.5s;
 }
 
-.container .box .content {
-  padding: 25px;
-  text-align: center;
-  transition: .5s;
-}
-
-.container .box .content h1 {
-  font-size: 18pt;
-  color: #fff;
-  z-index: 1;
-  pointer-events: none;
+h1 {
+    font-size: 18pt;
+    color: #fff;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .input {
-  background: rgba(255,255,255,.1);
-  display: block;
-  position: relative;
-  font-size: 16pt;
-  font-weight: bold;
-  border-color: rgba(255,255,255,.1);
-  margin: 15px;
-  color: rgba(255,255,255,.1);
-  -webkit-text-stroke: .9px rgba(255,255,255,.5);
-  text-transform: uppercase;
-  width: 250px;
-  height: auto;
-  letter-spacing: 2px;
-  word-spacing: 5px;
+    background: var(--bg-color);
+    display: block;
+    position: relative;
+    font-size: 16pt;
+    font-weight: bold;
+    border-color: var(--bg-color);
+    margin: 15px;
+    color: var(--bg-color);
+    -webkit-text-stroke: 0.9px var(--border-color);
+    text-transform: uppercase;
+    max-width: 60vw;
+    min-width: 250px;
+    height: auto;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+/* Button CSS */
+
+label {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+label h2 {
+    font-size: 15pt;
+    color: #fff;
 }
 
 label {
-  position: relative;
-  width: 65px;
-  height: 30px;
-  display: inline-block;
-  cursor: pointer;
-  margin: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
-label input {
-  opacity: 0;
+label div {
+    --button-width: 65px;
+    --border-radius-size: calc(var(--button-width) * 0.615384615);
+    position: relative;
+    width: var(--button-width);
+    aspect-ratio: 13/6;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
 }
 
-label .check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  background: #101010;
-  border-radius: 40px;
-  box-shadow: 0 0 0 4px #101010;
+label div input {
+    opacity: 0;
 }
 
-label .check:before {
-  content: '';
-  position: absolute;
-  top: calc(50% - 4px);
-  left: -30px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50px;
-  background: #f00;
-  transition: .5s;
-  box-shadow: 0 0 5px #f00, 
-              0 0 10px #f00, 
-              0 0 20px #f00, 
-              0 0 40px #f00, 
-              0 0 80px #f00;
+label div .check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: #101010;
+    border-radius: var(--border-radius-size);
+    box-shadow: 0 0 0 4px #101010;
 }
 
-label input:checked ~ .check:before {
-  background: #101010;
-  box-shadow: none;
+label div .check:before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -30px;
+    width: 8px;
+    aspect-ratio: 1;
+    border-radius: 50px;
+    background: #f00;
+    transition: 0.5s;
+    box-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00, 0 0 40px #f00,
+        0 0 80px #f00;
 }
 
-label .check:after {
-  content: '';
-  position: absolute;
-  top: calc(50% - 4px);
-  right: -30px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50px;
-  background: #101010;
-  box-shadow: none;
-  transition: .5s;
+label div input:checked ~ .check:before {
+    background: #101010;
+    box-shadow: none;
 }
 
-label input:checked ~ .check:after {
-  background: #0f0;
-  box-shadow: 0 0 5px #0f0, 
-              0 0 10px #0f0, 
-              0 0 20px #0f0, 
-              0 0 40px #0f0, 
-              0 0 80px #0f0;
+label div .check:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -30px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background: #101010;
+    box-shadow: none;
+    transition: 0.5s;
 }
 
-label .btn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 32.5px;
-  height: 30px;
-  border-radius: 40px;
-  background: #333;
-  transition: .5s;
-  box-shadow: inset 0 -20px 15px #292929,
-              inset 0 20px 15px #292929;
+label div input:checked ~ .check:after {
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0,
+        0 0 80px #0f0;
 }
 
-label .btn:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14.625px;
-  height: 30px;
-  background: #252525;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  box-shadow: inset -5px -5px 15px rgba(0,0,0,.3);
-  filter: blur(2px);
+label div .btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--button-width) * 0.5);
+    aspect-ratio: 6.5/6;
+    border-radius: var(--border-radius-size);
+    background: #333;
+    transition: 0.5s;
+    box-shadow: inset 0 calc(--border-radius-size * -0.5) 15px #292929,
+        inset 0 calc(--border-radius-size * 0.5) 15px #292929;
 }
 
-label .btn:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 14.625px;
-  height: 30px;
-  background: #252525;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: inset -5px -5px 15px rgba(0,0,0,.3);
-  filter: blur(2px);
+label div .btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14.625px;
+    height: 30px;
+    background: #252525;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.3);
+    filter: blur(2px);
 }
 
-label input:checked ~ .btn {
-  left: 50%;
+label div .btn:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc((var(--button-width) * 2.925 / 13));
+    aspect-ratio: 2.925/6;
+    background: #252525;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.3);
+    filter: blur(2px);
+}
+
+label div input:checked ~ .btn {
+    left: 50%;
 }
