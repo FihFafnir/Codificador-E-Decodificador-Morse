@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="style.css" type="text/css" media="all" />
@@ -27,12 +27,7 @@
         <label>
             <h2>Animação:</h2>
             <div>
-                <input
-                    id=""
-                    type="checkbox"
-                    checked
-                    onchange="handleChange(this)"
-                />
+                <input type="checkbox" checked onchange="handleChange(this)" />
                 <span class="check"></span>
                 <span class="btn"></span>
             </div>
@@ -48,14 +43,12 @@
             const element = document.querySelector(".container");
 
             function handleChange(checkbox) {
-                if (checkbox.checked == true) {
+                if (checkbox.checked)
                     VanillaTilt.init(element, {
                         max: 20,
                         speed: 300,
                     });
-                } else {
-                    element.vanillaTilt.destroy();
-                }
+                else element.vanillaTilt.destroy();
             }
 
             VanillaTilt.init(element, {
